@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 
 class SlotController extends Controller
 {
-   public function index(){
+    public function index()
+    {
 
-         $slot = Slot::get();
-         return $slot;
+        $slot = Slot::get();
+        return $slot;
     }
 
 
-    public function fetchTime(Request $request){
-        
-        $slot = Slot::where('date',$request->date)->first();
-        return $slot->initial_time .'-'. $slot->End_time;
+    public function fetchTime(Request $request)
+    {
+
+        $slot = Slot::where('date', $request->date)->first();
+        if ($slot) {
+            return $slot->initial_time . ' - ' . $slot->End_time;
+        }else{
+             return '';
+        }
     }
 }
