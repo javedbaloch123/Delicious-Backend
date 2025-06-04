@@ -21,4 +21,5 @@ Route::post('/contact',[ContactController::class, 'store']);
 Route::get('/chef',[ApiChefController::class, 'index']);
 
 Route::get('/slot',[SlotController::class, 'index']);
+Route::post('/fetch-time',[SlotController::class, 'fetchTime']);
 Route::post('/book',[BookController::class, 'store']);

@@ -13,4 +13,11 @@ class SlotController extends Controller
          $slot = Slot::get();
          return $slot;
     }
+
+
+    public function fetchTime(Request $request){
+        
+        $slot = Slot::where('date',$request->date)->first();
+        return $slot->initial_time .'-'. $slot->End_time;
+    }
 }
